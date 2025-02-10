@@ -1,0 +1,59 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 28/09/2020 11:12
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("/assets/website/fonts/freestashnode/Flaticon.eot");
+  src: url("/assets/website/fonts/freestashnode/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("/assets/website/fonts/freestashnode/Flaticon.woff2") format("woff2"),
+       url("./fonts/Flaticon.woff") format("woff"),
+       url("/assets/website/fonts/freestashnode/Flaticon.ttf") format("truetype"),
+       url("/assets/website/fonts/freestashnode/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("/assets/website/fonts/freestashnode/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+}
+
+.flaticon-email:before { content: "\f100"; }
+.flaticon-telephone:before { content: "\f101"; }
+.flaticon-pin:before { content: "\f102"; }
+.flaticon-magnifying-glass:before { content: "\f103"; }
+.flaticon-creative-idea:before { content: "\f104"; }
+.flaticon-solution:before { content: "\f105"; }
+.flaticon-recruitment:before { content: "\f106"; }
+.flaticon-consulting:before { content: "\f107"; }
+.flaticon-controller:before { content: "\f108"; }
+.flaticon-policy:before { content: "\f109"; }
+.flaticon-scrum:before { content: "\f10a"; }
+.flaticon-business-idea:before { content: "\f10b"; }
+.flaticon-recruit:before { content: "\f10c"; }
+.flaticon-customer-review:before { content: "\f10d"; }
+.flaticon-right-arrow:before { content: "\f10e"; }
+.flaticon-plus:before { content: "\f10f"; }
+.flaticon-investment:before { content: "\f110"; }
+.flaticon-checklist:before { content: "\f111"; }
+.flaticon-outsourcing:before { content: "\f112"; }
+.flaticon-mail:before { content: "\f113"; }
+.flaticon-address:before { content: "\f114"; }
+.flaticon-mission:before { content: "\f115"; }
+.flaticon-phone:before { content: "\f116"; }
+.flaticon-recruitment-1:before { content: "\f117"; }
+.flaticon-background-check:before { content: "\f118"; }
+.flaticon-job:before { content: "\f119"; }
+.flaticon-teaching:before { content: "\f11a"; }
+.flaticon-employment:before { content: "\f11b"; }
+.flaticon-left-arrow:before { content: "\f11c"; }
