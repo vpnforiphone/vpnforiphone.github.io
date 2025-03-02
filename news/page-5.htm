@@ -2,23 +2,19 @@
 <html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://vpnforiphone.github.io/news/article-64707.htm" />
+        <link rel="canonical" href="https://vpnforiphone.github.io/news/page-5.htm" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Docker修改容器默认存储路径</title>
-        <meta name="description" content="docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消" />
+    <title>新闻资讯 - VPN For iPhone 订阅链接节点官网 - 第4页</title>
         <link rel="icon" href="/assets/website/img/freestashnode/favicon.ico" type="image/x-icon"/>
 
     <meta name="author" content="VPN For iPhone 订阅链接节点官网">
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://vpnforiphone.github.io/news/article-64707.htm" />
+    <meta property="og:type" content="webpage" />
+    <meta property="og:url" content="https://vpnforiphone.github.io/news/page-5.htm" />
     <meta property="og:site_name" content="VPN For iPhone 订阅链接节点官网" />
-    <meta property="og:title" content="Docker修改容器默认存储路径" />
-    <meta property="og:image" content="https://vpnforiphone.github.io/uploads/20240919/02919bd32c55b5c5a1e7742396b54c39.webp" />
-        <meta property="og:release_date" content="2025-02-28T06:56:52" />
-    <meta property="og:updated_time" content="2025-02-28T06:56:52" />
-        <meta property="og:description" content="docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消" />
+    <meta property="og:title" content="新闻资讯 - VPN For iPhone 订阅链接节点官网 - 第4页" />
+    <meta property="og:image" content="/assets/website/img/freestashnode/favicon.ico" />
     
     <meta name="applicable-device" content="pc,mobile" />
     <meta name="renderer" content="webkit" />
@@ -27,7 +23,7 @@
     <meta name="robots" content="max-image-preview:large" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Docker修改容器默认存储路径">
+    <meta name="apple-mobile-web-app-title" content="新闻资讯 - VPN For iPhone 订阅链接节点官网 - 第4页">
     <meta name="format-detection" content="telephone=no">
 
     <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
@@ -63,7 +59,7 @@
 </head>
 <!-- page wrapper -->
 
-<body data-page="detail">
+<body data-page="category">
     <div class="boxed_wrapper">
                 <!-- preloader -->
         <div class="preloader"></div>
@@ -144,12 +140,11 @@
             <div class="auto-container">
                 <div class="content-box">
                     <div class="title">
-                        <h1>Docker修改容器默认存储路径</h1>
+                        <h1>新闻资讯</h1>
                     </div>
                     <ul class="bread-crumb clearfix">
                         <li><a href="/">首页</a></li>
-                        <li><a href="/news/">新闻资讯</a></li>
-                        <li>正文</li>
+                        <li>新闻资讯</li>
                     </ul>
                 </div>
             </div>
@@ -160,13 +155,23 @@
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-md-9">
-                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
-                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消耗的空间也会越来越大，所以我们必须要做数据迁移和修改docker服务的默认存储位置路径；有多种方式是可以修改docker默认存储目录路径的，但是最好是在docker安装完成后，第一时间便修改docker的默认存储位置路径为其他磁盘空间较大的目录(一般企业中为/data目录)，规避迁移数据过程中所造成的风险。</strong></p> <pre><strong>1）创建docker容器存放的路径</strong></pre> <pre><code> # mkdir -p /home/data/docker/lib</code></pre> <pre><strong>（2）停止Docker服务并迁移数据到新目录</strong></pre> <pre><code> # systemctl stop docker.service  # rsync -avz /var/lib/docker/ /home/data/docker/lib/</code></pre> <pre><strong>（3</strong><strong>）创建Docker配置文件</strong></pre> <pre><code># mkdir -p /etc/systemd/system/docker.service.d/  # vim /etc/systemd/system/docker.service.d/devicemapper.conf [Service] ExecStart= ExecStart=/usr/bin/dockerd  --graph=/home/data/docker/lib/</code></pre> <pre><strong>（4</strong><strong>）重启Docker服务</strong></pre> <pre><code># systemctl daemon-reload  # systemctl restart docker</code></pre> <pre><strong>（5</strong><strong>）查看现在容器存放的目录</strong></pre> <pre><code># docker info | grep "Dir"</code></pre> <pre> Docker Root Dir: /home/data/docker/lib</pre> </div> 			                <div class="clearfix"></div>
-                <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-64096.htm">宠物美容师工作怎么样知乎（宠物美容师待遇和前景怎么样）</a></p>
-                                        <p>下一个：<a href="/news/article-64709.htm">广州宠物领养平台官网地址电话号码（广州宠物领养中心具体地址）</a></p>
-                                    </div>
-                                    </div>
+                        <div class="xcblog-blog-list">
+                                                        <div class="row item xcblog-blog-item" data-date="2025-02-10">
+                                <div class="col-md-3">
+                                    <a href="/news/article-54462.htm" class="xcblog-blog-url">
+                                        <img src="/uploads/20240919/b577e9eceae35bf994a472df3272323d.webp" alt="vue跨组件传参详解">
+                                    </a>
+                                </div>
+                                <div class="col-md-9">
+                                    <a href="/news/article-54462.htm" class="xcblog-blog-url">
+                                        <h3 class="xcblog-blog-title">vue跨组件传参详解</h3>
+                                    </a>
+                                    <p>Vue 的组件作用域都是孤立的，不允许在子组件的模板内直接引用父组件的数据。必须使用特定的方法才能实现组件之间的数据传递。 首先用 vue-cli 创建一个项目，其中 App.vue 是父组件，com</p>
+                                </div>
+                            </div>
+                            
+                            <ul class="pagination"><li><a href="/news/page-4.htm">&laquo;</a></li> <li><a href="/news/">1</a></li><li><a href="/news/page-2.htm">2</a></li><li><a href="/news/page-3.htm">3</a></li><li><a href="/news/page-4.htm">4</a></li><li class="active"><span>5</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                        </div>
+                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -174,16 +179,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-55430.htm" title="Golang-Channel原理解析">Golang-Channel原理解析</a></li>
-                        <li class="py-2"><a href="/news/article-54876.htm" title="洛洛历险记机车名字（洛洛历险记2）">洛洛历险记机车名字（洛洛历险记2）</a></li>
-                        <li class="py-2"><a href="/news/article-54463.htm" title="动物疫苗批号查询网站官网入口下载（动物疫苗2021）">动物疫苗批号查询网站官网入口下载（动物疫苗2021）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-v2ray-subscribe.htm" title="VPN For iPhone | 2月13日23M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点链接地址">VPN For iPhone | 2月13日23M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-55983.htm" title="人用疫苗和兽用疫苗区别在哪（兽用和人用针剂的区别）">人用疫苗和兽用疫苗区别在哪（兽用和人用针剂的区别）</a></li>
-                        <li class="py-2"><a href="/news/article-57659.htm" title="瑞派宠物诊所电话（瑞派宠物医院天眼查）">瑞派宠物诊所电话（瑞派宠物医院天眼查）</a></li>
-                        <li class="py-2"><a href="/news/article-56530.htm" title="Android EditText光标指定位置">Android EditText光标指定位置</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-v2ray.htm" title="VPN For iPhone | 2月18日18.3M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点链接地址">VPN For iPhone | 2月18日18.3M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-55431.htm" title="宠物鲜粮市场前景分析论文怎么写（宠物粮市场销售渠道）">宠物鲜粮市场前景分析论文怎么写（宠物粮市场销售渠道）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-node-subscribe-links.htm" title="VPN For iPhone | 2月23日19.5M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址">VPN For iPhone | 2月23日19.5M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61682.htm" title="参观动物园兽医心得（参观动物医院的实验报告）">参观动物园兽医心得（参观动物医院的实验报告）</a></li>
+                        <li class="py-2"><a href="/news/article-64094.htm" title="Hbase架构与存储组件结构与功能">Hbase架构与存储组件结构与功能</a></li>
+                        <li class="py-2"><a href="/news/article-63481.htm" title="宠物粮生产机器厂家（生产宠物粮前景如何）">宠物粮生产机器厂家（生产宠物粮前景如何）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-node-share.htm" title="VPN For iPhone | 2月22日22.1M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点链接地址">VPN For iPhone | 2月22日22.1M/S|免费VPN/SSR/Clash/V2ray/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55982.htm" title="阿城区王允海动物医院电话号码是多少（阿城区王允海动物医院电话号码是多少号）">阿城区王允海动物医院电话号码是多少（阿城区王允海动物医院电话号码是多少号）</a></li>
+                        <li class="py-2"><a href="/news/article-58857.htm" title="动物疫苗的重要性和意义是什么（动物疫苗的使用方法及注意事项）">动物疫苗的重要性和意义是什么（动物疫苗的使用方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-62293.htm" title="2020年卖狗粮赚钱吗（卖狗粮需要什么手续）">2020年卖狗粮赚钱吗（卖狗粮需要什么手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-high-speed-nodes.htm" title="VPN For iPhone | 2月15日18.5M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点链接地址">VPN For iPhone | 2月15日18.5M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62882.htm" title="正规宠物领养平台排名榜最新（宠物领养平台免费）">正规宠物领养平台排名榜最新（宠物领养平台免费）</a></li>
+                        <li class="py-2"><a href="/news/article-60522.htm" title="mybatis的的代理开发">mybatis的的代理开发</a></li>
                     </ul>
     </div>
 </div>

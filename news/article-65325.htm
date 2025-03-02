@@ -2,23 +2,23 @@
 <html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://vpnforiphone.github.io/news/article-64707.htm" />
+        <link rel="canonical" href="https://vpnforiphone.github.io/news/article-65325.htm" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Docker修改容器默认存储路径</title>
-        <meta name="description" content="docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消" />
+    <title>SpringBoot之HandlerInterceptor拦截器的使用</title>
+        <meta name="description" content="拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。 我仔细想了想 这里我分三篇博客来介绍HandlerInter" />
         <link rel="icon" href="/assets/website/img/freestashnode/favicon.ico" type="image/x-icon"/>
 
     <meta name="author" content="VPN For iPhone 订阅链接节点官网">
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://vpnforiphone.github.io/news/article-64707.htm" />
+    <meta property="og:url" content="https://vpnforiphone.github.io/news/article-65325.htm" />
     <meta property="og:site_name" content="VPN For iPhone 订阅链接节点官网" />
-    <meta property="og:title" content="Docker修改容器默认存储路径" />
-    <meta property="og:image" content="https://vpnforiphone.github.io/uploads/20240919/02919bd32c55b5c5a1e7742396b54c39.webp" />
-        <meta property="og:release_date" content="2025-02-28T06:56:52" />
-    <meta property="og:updated_time" content="2025-02-28T06:56:52" />
-        <meta property="og:description" content="docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消" />
+    <meta property="og:title" content="SpringBoot之HandlerInterceptor拦截器的使用" />
+    <meta property="og:image" content="https://vpnforiphone.github.io/uploads/20240919/3b2341528fd88fc178e5343ee0f28498.webp" />
+        <meta property="og:release_date" content="2025-03-01T06:59:54" />
+    <meta property="og:updated_time" content="2025-03-01T06:59:54" />
+        <meta property="og:description" content="拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。 我仔细想了想 这里我分三篇博客来介绍HandlerInter" />
     
     <meta name="applicable-device" content="pc,mobile" />
     <meta name="renderer" content="webkit" />
@@ -27,7 +27,7 @@
     <meta name="robots" content="max-image-preview:large" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Docker修改容器默认存储路径">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot之HandlerInterceptor拦截器的使用">
     <meta name="format-detection" content="telephone=no">
 
     <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
@@ -144,7 +144,7 @@
             <div class="auto-container">
                 <div class="content-box">
                     <div class="title">
-                        <h1>Docker修改容器默认存储路径</h1>
+                        <h1>SpringBoot之HandlerInterceptor拦截器的使用</h1>
                     </div>
                     <ul class="bread-crumb clearfix">
                         <li><a href="/">首页</a></li>
@@ -161,10 +161,10 @@
                 <div class="row clearfix">
                     <div class="col-md-9">
                                         <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
-                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>docker安装之后默认的服务数据存放根路径为/var/lib/docker目录下，var目录默认使用的是根分区的磁盘空间；所以这是非常危险的事情；随着我们镜像、启动的容器实例开始增多的时候，磁盘所消耗的空间也会越来越大，所以我们必须要做数据迁移和修改docker服务的默认存储位置路径；有多种方式是可以修改docker默认存储目录路径的，但是最好是在docker安装完成后，第一时间便修改docker的默认存储位置路径为其他磁盘空间较大的目录(一般企业中为/data目录)，规避迁移数据过程中所造成的风险。</strong></p> <pre><strong>1）创建docker容器存放的路径</strong></pre> <pre><code> # mkdir -p /home/data/docker/lib</code></pre> <pre><strong>（2）停止Docker服务并迁移数据到新目录</strong></pre> <pre><code> # systemctl stop docker.service  # rsync -avz /var/lib/docker/ /home/data/docker/lib/</code></pre> <pre><strong>（3</strong><strong>）创建Docker配置文件</strong></pre> <pre><code># mkdir -p /etc/systemd/system/docker.service.d/  # vim /etc/systemd/system/docker.service.d/devicemapper.conf [Service] ExecStart= ExecStart=/usr/bin/dockerd  --graph=/home/data/docker/lib/</code></pre> <pre><strong>（4</strong><strong>）重启Docker服务</strong></pre> <pre><code># systemctl daemon-reload  # systemctl restart docker</code></pre> <pre><strong>（5</strong><strong>）查看现在容器存放的目录</strong></pre> <pre><code># docker info | grep "Dir"</code></pre> <pre> Docker Root Dir: /home/data/docker/lib</pre> </div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> </h1> <p>拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。<br /> 我仔细想了想<br /> 这里我分三篇博客来介绍HandlerInterceptor的使用，从基本的使用、到自定义注解、最后到读取body中的流解决无法多次读取的问题。</p> <h2><a id="1_4" rel="nofollow"></a>1、定义实现类</h2> <p>定义一个Interceptor 非常简单方式也有几种，我这里简单列举两种<br /> 1、类要实现Spring 的HandlerInterceptor 接口<br /> 2、类继承实现了HandlerInterceptor 接口的类，例如 已经提供的实现了HandlerInterceptor 接口的抽象类HandlerInterceptorAdapter</p> <blockquote> <p>这里博主用的是第二种方法继承HandlerInterceptorAdapter</p> </blockquote> <h2><a id="2HandlerInterceptor_10" rel="nofollow"></a>2、HandlerInterceptor方法介绍</h2> <pre><code> 	boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) 			throws Exception;  	void postHandle( 			HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) 			throws Exception;  	void afterCompletion( 			HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) 			throws Exception;</code></pre> <ul> <li>preHandle：在业务处理器处理请求之前被调用。预处理，可以进行编码、安全控制、权限校验等处理；</li> <li>postHandle：在业务处理器处理请求执行完成后，生成视图之前执行。后处理（调用了Service并返回ModelAndView，但未进行页面渲染），有机会修改ModelAndView （这个博主就基本不怎么用了）；</li> <li>afterCompletion：在DispatcherServlet完全处理完请求后被调用，可用于清理资源等。返回处理（已经渲染了页面）；</li> </ul> <p>接下来让我们来实现一个登陆 and 访问权限校验的拦截器吧</p> <h2><a id="_31" rel="nofollow"></a>拦截器实现</h2> <ul> <li>新建TestFilter</li> </ul> <pre><code>package com.xxx.core.filter;  import com.xxx.common.exception.FastRuntimeException; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.web.servlet.ModelAndView; import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse;   public class TestFilter extends HandlerInterceptorAdapter { 	private final Logger logger = LoggerFactory.getLogger(TestFilter.class); 	@Override 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) 			throws Exception { 		logger.info("request请求地址path[{}] uri[{}]", request.getServletPath(),request.getRequestURI()); 		//request.getHeader(String) 从请求头中获取数据 		//从请求头中获取用户token（登陆凭证根据业务而定） 		Long userId= getUserId(request.getHeader("H-User-Token")); 		if (userId != null &amp;&amp; checkAuth(userId,request.getRequestURI())){ 			return true; 		} 		//这里的异常是我自定义的异常，系统抛出异常后框架捕获异常然后转为统一的格式返回给前端， 其实这里也可以返回false 		throw new FastRuntimeException(20001,"No access"); 	}  	/** 	 * 根据token获取用户ID 	 * @param userToken 	 * @return 	 */ 	private Long getUserId(String userToken){ 		Long userId = null; 		return userId; 	}  	/** 	 * 校验用户访问权限 	 * @param userId 	 * @param requestURI 	 * @return 	 */ 	private boolean checkAuth(Long userId,String requestURI){ 		return true; 	}  	@Override 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, 						   ModelAndView modelAndView) throws Exception {}  	@Override 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) 			throws Exception {} }</code></pre> <ul> <li>新建WebAppConfigurer 实现WebMvcConfigurer接口</li> </ul> <blockquote> <p>其实以前都是继承WebMvcConfigurerAdapter类 不过springBoot2.0以上 WebMvcConfigurerAdapter 方法过时，有两种替代方案：<br /> 1、继承WebMvcConfigurationSupport<br /> 2、实现WebMvcConfigurer<br /> 但是继承WebMvcConfigurationSupport会让Spring-boot对mvc的自动配置失效。根据项目情况选择。现在大多数项目是前后端分离，并没有对静态资源有自动配置的需求所以继承WebMvcConfigurationSupport也未尝不可。</p> </blockquote> <pre><code>@Configuration public class WebAppConfigurer implements WebMvcConfigurer {      @Override     public void addInterceptors(InterceptorRegistry registry) {         // 可添加多个         registry.addInterceptor(new TestFilter()).addPathPatterns("/**");     }      .... }</code></pre> <blockquote> <p>其实下面还有很多方法我这里就省略了，过滤器可以添加多个，可以指定Path，这里的/**是对所有的请求都做拦截。</p> </blockquote> <p>是否感觉配置这个地址是不特别方便？下一篇博客介绍2.0版本引入注解来协助完成一系列的拦截任务。<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81738940"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（二）自定义注解</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81875705"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（三）获取请求参数解决java.io.IOException: Stream closed</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81905300"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（四）防重复提交</a></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-64096.htm">宠物美容师工作怎么样知乎（宠物美容师待遇和前景怎么样）</a></p>
-                                        <p>下一个：<a href="/news/article-64709.htm">广州宠物领养平台官网地址电话号码（广州宠物领养中心具体地址）</a></p>
+                                        <p>上一个：<a href="/news/article-64709.htm">广州宠物领养平台官网地址电话号码（广州宠物领养中心具体地址）</a></p>
+                                        <p>下一个：<a href="/news/article-65328.htm">不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -174,16 +174,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-55430.htm" title="Golang-Channel原理解析">Golang-Channel原理解析</a></li>
-                        <li class="py-2"><a href="/news/article-54876.htm" title="洛洛历险记机车名字（洛洛历险记2）">洛洛历险记机车名字（洛洛历险记2）</a></li>
-                        <li class="py-2"><a href="/news/article-54463.htm" title="动物疫苗批号查询网站官网入口下载（动物疫苗2021）">动物疫苗批号查询网站官网入口下载（动物疫苗2021）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-v2ray-subscribe.htm" title="VPN For iPhone | 2月13日23M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点链接地址">VPN For iPhone | 2月13日23M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65328.htm" title="不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）">不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）</a></li>
+                        <li class="py-2"><a href="/news/article-64707.htm" title="Docker修改容器默认存储路径">Docker修改容器默认存储路径</a></li>
                         <li class="py-2"><a href="/news/article-55983.htm" title="人用疫苗和兽用疫苗区别在哪（兽用和人用针剂的区别）">人用疫苗和兽用疫苗区别在哪（兽用和人用针剂的区别）</a></li>
-                        <li class="py-2"><a href="/news/article-57659.htm" title="瑞派宠物诊所电话（瑞派宠物医院天眼查）">瑞派宠物诊所电话（瑞派宠物医院天眼查）</a></li>
-                        <li class="py-2"><a href="/news/article-56530.htm" title="Android EditText光标指定位置">Android EditText光标指定位置</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-v2ray.htm" title="VPN For iPhone | 2月18日18.3M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点链接地址">VPN For iPhone | 2月18日18.3M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-55431.htm" title="宠物鲜粮市场前景分析论文怎么写（宠物粮市场销售渠道）">宠物鲜粮市场前景分析论文怎么写（宠物粮市场销售渠道）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-node-subscribe-links.htm" title="VPN For iPhone | 2月23日19.5M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址">VPN For iPhone | 2月23日19.5M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-high-speed-nodes.htm" title="VPN For iPhone | 2月12日18.8M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点链接地址">VPN For iPhone | 2月12日18.8M/S|免费VPN/SSR/Shadowrocket/Clash/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54463.htm" title="动物疫苗批号查询网站官网入口下载（动物疫苗2021）">动物疫苗批号查询网站官网入口下载（动物疫苗2021）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-node-share.htm" title="VPN For iPhone | 2月17日18.3M/S|免费VPN/SSR/Clash/Shadowrocket/V2ray免费节点链接地址">VPN For iPhone | 2月17日18.3M/S|免费VPN/SSR/Clash/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61682.htm" title="参观动物园兽医心得（参观动物医院的实验报告）">参观动物园兽医心得（参观动物医院的实验报告）</a></li>
+                        <li class="py-2"><a href="/news/article-60522.htm" title="mybatis的的代理开发">mybatis的的代理开发</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-high-speed-nodes.htm" title="VPN For iPhone | 2月15日18.5M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点链接地址">VPN For iPhone | 2月15日18.5M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-62293.htm" title="2020年卖狗粮赚钱吗（卖狗粮需要什么手续）">2020年卖狗粮赚钱吗（卖狗粮需要什么手续）</a></li>
                     </ul>
     </div>
 </div>
