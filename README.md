@@ -1,4 +1,4 @@
-# VPN For iPhone | 3月4日18.2M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址  更新时间 2025-03-04 10:23:47
+# VPN For iPhone | 3月6日19.5M/S|免费VPN/Shadowrocket/Clash/V2ray/SSR免费节点链接地址  更新时间 2025-03-06 11:13:35
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://vpnforiphone.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/03/0-20250304.yaml
-- https://vpnforiphone.github.io/uploads/2025/03/1-20250304.yaml
-- https://vpnforiphone.github.io/uploads/2025/03/2-20250304.yaml
-- https://vpnforiphone.github.io/uploads/2025/03/3-20250304.yaml
-- https://vpnforiphone.github.io/uploads/2025/03/4-20250304.yaml
+- https://vpnforiphone.github.io/uploads/2025/03/0-20250306.yaml
+- https://vpnforiphone.github.io/uploads/2025/03/1-20250306.yaml
+- https://vpnforiphone.github.io/uploads/2025/03/2-20250306.yaml
+- https://vpnforiphone.github.io/uploads/2025/03/3-20250306.yaml
+- https://vpnforiphone.github.io/uploads/2025/03/4-20250306.yaml
 
 ### V2ray订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/03/0-20250304.txt
-- https://vpnforiphone.github.io/uploads/2025/03/1-20250304.txt
-- https://vpnforiphone.github.io/uploads/2025/03/2-20250304.txt
-- https://vpnforiphone.github.io/uploads/2025/03/3-20250304.txt
-- https://vpnforiphone.github.io/uploads/2025/03/4-20250304.txt
+- https://vpnforiphone.github.io/uploads/2025/03/0-20250306.txt
+- https://vpnforiphone.github.io/uploads/2025/03/1-20250306.txt
+- https://vpnforiphone.github.io/uploads/2025/03/2-20250306.txt
+- https://vpnforiphone.github.io/uploads/2025/03/3-20250306.txt
+- https://vpnforiphone.github.io/uploads/2025/03/4-20250306.txt
 
 ### Sing-box订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/03/20250304.json
+- https://vpnforiphone.github.io/uploads/2025/03/20250306.json
 
 ## 更多clash节点订阅 ：
 
