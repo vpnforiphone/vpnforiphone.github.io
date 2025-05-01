@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnforiphone.github.io/news/article-107403.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>源码级别的广播与监听实现</title>
+        <meta name="description" content="前言：  近期疫情形势严峻，情形不容乐观，周末也不敢出去浪了，躲在家里“葛优躺”。闲来无事，又翻了遍Spring的源码。不翻不知道，一翻吓一跳，之前翻过的源码已经吃进了肚子里，再见亦是陌生人。  个人" />
+        <link rel="icon" href="/assets/website/img/freestashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN For iPhone 订阅链接节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnforiphone.github.io/news/article-107403.htm" />
+    <meta property="og:site_name" content="VPN For iPhone 订阅链接节点官网" />
+    <meta property="og:title" content="源码级别的广播与监听实现" />
+    <meta property="og:image" content="https://vpnforiphone.github.io/uploads/20240919/376c5d609a493e56ab17209ac92a5a64.webp" />
+        <meta property="og:release_date" content="2025-04-29T08:03:47" />
+    <meta property="og:updated_time" content="2025-04-29T08:03:47" />
+        <meta property="og:description" content="前言：  近期疫情形势严峻，情形不容乐观，周末也不敢出去浪了，躲在家里“葛优躺”。闲来无事，又翻了遍Spring的源码。不翻不知道，一翻吓一跳，之前翻过的源码已经吃进了肚子里，再见亦是陌生人。  个人" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="源码级别的广播与监听实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link href="/assets/website/css/freestashnode/font-awesome-all.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/flaticon.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/owl.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/bootstrap.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/animate.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/color.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/style.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5BJ013Z2RV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5BJ013Z2RV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- page wrapper -->
+
+<body data-page="detail">
+    <div class="boxed_wrapper">
+                <!-- preloader -->
+        <div class="preloader"></div>
+        <!-- preloader -->
+        <!-- main header -->
+        <header class="main-header style-one">
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="/">
+                                                        <span>VPN For iPhone</span>
+                                                        </a>
+                        </figure>
+                    </div>
+                    <div class="menu-area">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="/">
+                                <span>VPN For iPhone</span>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <nav class="menu-box">
+                <div class="menu-outer">
+                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+        <!-- Page Title -->
+        <section class="page-title centred" style="background-image: url(/assets/website/img/freestashnode/background/page-title.jpg);">
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="title">
+                        <h1>源码级别的广播与监听实现</h1>
+                    </div>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!-- about-section -->
+        <section class="about-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<blockquote> <p>前言：</p> </blockquote> <p>近期疫情形势严峻，情形不容乐观，周末也不敢出去浪了，躲在家里“葛优躺”。闲来无事，又翻了遍<code>Spring</code>的源码。不翻不知道，一翻吓一跳，之前翻过的源码已经吃进了肚子里，再见亦是陌生人。</p> <blockquote> <p>个人建议：为了以后能快速的捡起某个知识点，最好的方法还是形成文档，下次有遗漏的时候，直接读文档，按之前的思路捋一遍，“干净又卫生”。</p> </blockquote> <p>之前的文章中我们已经介绍过如何在项目中快速上手“事件通知机制”，相信大家已经掌握了。但是我们作为高级<code>javaer</code>，要知其然，更要知其所以然。今天就带大家从源码的角度来分析一下<strong>广播与监听</strong>的底层实现原理。</p> <blockquote> <p>源码导入教程也给你准备好了，不来试试吗？</p> <p>版本号：spring-framework-5.0.x</p> </blockquote> <h2 id="源码解析">源码解析</h2> <p>为了实现广播与监听的功能，<code>Spring</code>为我们提供了两个重要的函数式接口：<code>ApplicationEventPublisher</code>和<code>ApplicationListener</code>。前者的<code>publishEvent()</code>方法为我们提供了发送广播的能力；后者的<code>onApplicationEvent()</code>方法为我们提供了监听并处理事件的能力。</p> <p>接下来我们就来分析一下<code>spring</code>是如何运用这两种能力的。</p> <p>不知道大家对单例对象的初始化调用过程是否熟悉？主要调用方法流程如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9531bb4a2b226fc9d3b62b4a49411123.jpg" alt="源码级别的广播与监听实现"></p> <h4 id="发送广播">发送广播</h4> <p><code>applyBeanPostProcessorsBeforeInitialization</code>方法会去遍历该工厂创建的所有的<code>Bean</code>后置处理器，然后去依次执行后置处理器对应的<code>postProcessBeforeInitialization</code>方法。</p> <p>在该方法的实现类中我们看到了两个熟悉的类名</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2fa4744c25880662f575dd26b1f3cd46.jpg" alt="源码级别的广播与监听实现"></p> <p>不知道大家还记得不，这俩类是在<code>beanFactory</code>的准备工作过程中添加的两个<code>bean</code>的后置处理器，所以这个地方会依次去执行这两个类中的实现方法。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cab42f77c373b5acfaeedce00dbaf7c7.jpg" alt="源码级别的广播与监听实现"></p> <p>由于<strong>蓝框</strong>中类的实现方法是默认实现按照原样返回的给定的<code>bean</code>，所以此处不用过多分析，我们重点来看下<strong>红框</strong>中类的方法实现。</p> <p>该方法中最重要的是<code>invokeAwareInterfaces</code>方法，它的作用是检测对应的<code>bean</code>是否实现了某个<code>Aware</code>接口，如果实现了的话就去进行相关的调用。</p> <pre><code class="language-java">if (bean instanceof ApplicationEventPublisherAware) {     ((ApplicationEventPublisherAware) bean).setApplicationEventPublisher(this.applicationContext); }</code></pre> <p>我们发现在<code>invokeAwareInterfaces</code>方法中出现了如上代码，这不就是和广播发送相关的吗？所以只要我们写一个类来实现<code>ApplicationEventPublisherAware</code>接口，就可以在该<code>bean</code>中注入一个<code>ApplicationEventPublisher</code>对象，也就获得了发送广播的能力。</p> <h4 id="监听消息">监听消息</h4> <p><code>applyBeanPostProcessorsAfterInitialization</code>方法<strong>也</strong>会去遍历该工厂创建的所有的<code>Bean</code>后置处理器，然后去依次执行后置处理器对应的<code>postProcessAfterInitialization</code>方法。</p> <p>同样的，该方法的实现类中也有<code>ApplicationContextAwareProcessor</code>和<code>ApplicationListenerDetector</code>两个类，但是不同的是，前者的类的实现方法是默认实现按照原样返回的给定<code>bean</code>，而后者做了相关的处理。</p> <pre><code class="language-java">this.applicationContext.addApplicationListener((ApplicationListener&lt;?&gt;) bean);</code></pre> <p>上述代码是将实现了<code>ApplicationListener</code>接口的<code>bean</code>添加到监听器列表中，最终是保存在<code>AbstractApplicationEventMulticaster</code>的成员变量<code>defaultRetriever</code>的集合<code>applicationListeners</code>中。</p> <blockquote> <p>猜想：当发送广播消息时，就直接找到集合中的这些监听器，然后调用每个监听器的<code>onApplicationEvent</code>方法完成事件的处理。</p> </blockquote> <h4 id="案例分析">案例分析</h4> <p>在<code>refresh()</code>的<code>finishRefresh()</code>方法中，</p> <pre><code class="language-java">publishEvent(new ContextRefreshedEvent(this));</code></pre> <p>发送一条事件类型为<code>ContextRefreshedEvent</code>的广播消息，用来代表<code>Spring</code>容器初始化结束。通过分析发现，该方法中最主要的就是如下代码：</p> <pre><code class="language-java">//真正的广播交给 applicationEventMulticaster 来完成 getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);</code></pre> <blockquote> <p><code>refresh()</code>的<code>initApplicationEventMulticaster()</code>将<code>applicationEventMulticaster</code>初始化为<code>SimpleApplicationEventMulticaster</code></p> </blockquote> <p>在实现类<code>SimpleApplicationEventMulticaster</code>的方法中，会找到已注册的<code>ApplicationListener</code>列表，然后分别调用<code>invokeListener</code>方法（将监听和事件作为参数传到方法并执行的过程就是发送广播的过程）。</p> <p>底层调用的是<code>listener.onApplicationEvent(event);</code>方法，也就是各个监听实现类单独处理广播消息的逻辑。</p> <h4 id="消息与监听绑定">消息与监听绑定</h4> <p>看到这儿，你是不是已经发现了：消息类型和监听器的绑定发生在广播过程中。接下来就让我们去一探究竟</p> <p>我们看一下<code>multicastEvent()</code>方法中的<code>getApplicationListeners(event, type)</code>方法。</p> <p>在该方法中，用到了<code>ConcurrentHashMap</code>类型的缓存<code>retrieverCache</code>，所以每种类型的事件在广播的时候会触发<strong>一次</strong>绑定操作。它的<strong>key</strong>由事件的来源和类型确定，它的<strong>value</strong>中就包含了由事件来源和类型所确定的所有监听列表。</p> <p>其中绑定的逻辑就出现在<code>retrieveApplicationListeners</code>方法中，大家可以去源码中查看。</p> <h2 id="实战教学">实战教学</h2> <p>纸上得来终觉浅，绝知此事要躬行。为了更好地理解广播与监听的流程，我们当然得用实战来加以辅佐！</p> <h4 id="自定义事件">自定义事件</h4> <pre><code class="language-java">public class MyEvent extends ApplicationContextEvent {     public MyEvent(ApplicationContext source) {         super(source);     } }</code></pre> <h4 id="自定义广播">自定义广播</h4> <pre><code class="language-java">@Component public class MyPublisher implements ApplicationEventPublisherAware, ApplicationContextAware {  	private ApplicationEventPublisher applicationEventPublisher;  	private ApplicationContext applicationContext;  	@Override 	public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) { 		this.applicationEventPublisher = applicationEventPublisher; 	}  	@Override 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException { 		this.applicationContext = applicationContext; 	}  	//发送广播消息 	public void publishEvent(){ 		System.out.println("我要开始发送消息了。。。"); 		MyEvent myEvent = new MyEvent(applicationContext); 		applicationEventPublisher.publishEvent(myEvent); 	} }</code></pre> <p><code>MyPublisher</code>实现了<code>ApplicationEventPublisherAware</code>接口 ，在<code>spring</code>初始化（见上文中的<code>invokeAwareInterfaces</code>）的时候会回调<code>setApplicationEventPublisher</code>方法，获取到初始化（添加<code>bean</code>后置处理器<code>ApplicationContextAwareProcessor</code>）时的<code>AbstractApplicationContext</code>，而<code>AbstractApplicationContext</code>又间接实现了<code>ApplicationEventPublisher</code>而获得发送能力。真正执行的是<code>AbstractApplicationContext</code> 类中的<code>publishEvent</code> 方法。</p> <h4 id="自定义监听">自定义监听</h4> <pre><code class="language-java">@Component public class MyEventListener implements ApplicationListener&lt;MyEvent&gt; {      @Override     public void onApplicationEvent(MyEvent event) {         System.out.println("我监听到你的消息了");     } }</code></pre> <p><code>MyEventListener</code>实现了<code>ApplicationListener</code>接口，在<code>spring</code>初始化（见上文中的<code>addApplicationListener</code>）的时候会添加到<code>applicationListeners</code>中，在执行<code>publishEvent</code> 方法时就会走<code>MyEventListener</code>中的<code>onApplicationEvent</code>方法。</p> <h4 id="客户端">客户端</h4> <pre><code class="language-java">@RestController @RequestMapping("/demo") public class DemoTest {      @Autowired     private MyPublisher myPublisher;      @RequestMapping("/test")     public void test() {         myPublisher.publishEvent();     } }</code></pre> <p>访问<code>127.0.0.1:8008/demo/test</code>就可以发送广播了，发送与监听内容如下：</p> <pre><code class="language-xml">我要开始发送消息了。。。 我监听到你的消息了</code></pre> <p>看到这儿，相信你己经完全掌握了广播与监听的精髓了，赶快实践起来吧。阿Q将持续更新<code>java</code>实战方面的文章，感兴趣的可以关注下，也可以来<strong>技术群</strong>讨论问题呦！</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-106368.htm">上海免费领养猫上海宠物领（上海有没有免费领养宠物的）</a></p>
+                                        <p>下一个：<a href="/news/article-107405.htm">宠物领养公告怎么写（宠物领养公告怎么写好）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-clash-v2ray-ss-ssr.htm" title="VPN For iPhone | 4月24日22.1M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点链接地址">VPN For iPhone | 4月24日22.1M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88390.htm" title="穷人养什么猫（穷人养什么猫合适）">穷人养什么猫（穷人养什么猫合适）</a></li>
+                        <li class="py-2"><a href="/news/article-105563.htm" title="python协程 &amp; asyncio &amp; 异步编程（一） 协程">python协程 &amp; asyncio &amp; 异步编程（一） 协程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-19-free-node-subscribe.htm" title="VPN For iPhone | 4月19日20.9M/S|免费VPN/Shadowrocket/Clash/V2ray/SSR免费节点链接地址">VPN For iPhone | 4月19日20.9M/S|免费VPN/Shadowrocket/Clash/V2ray/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-89844.htm" title="广州宠物领养中心哪家好一点啊（广州宠物领养公众号）">广州宠物领养中心哪家好一点啊（广州宠物领养公众号）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share-links.htm" title="VPN For iPhone | 4月3日21.3M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点链接地址">VPN For iPhone | 4月3日21.3M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-101636.htm" title="可以自己给宠物打疫苗吗现在（可以自己给宠物打疫苗吗现在疫情）">可以自己给宠物打疫苗吗现在（可以自己给宠物打疫苗吗现在疫情）</a></li>
+                        <li class="py-2"><a href="/news/article-107405.htm" title="宠物领养公告怎么写（宠物领养公告怎么写好）">宠物领养公告怎么写（宠物领养公告怎么写好）</a></li>
+                        <li class="py-2"><a href="/news/article-103966.htm" title="宠物鲜粮市场分析论文（宠物鲜粮市场分析论文题目）">宠物鲜粮市场分析论文（宠物鲜粮市场分析论文题目）</a></li>
+                        <li class="py-2"><a href="/news/article-87656.htm" title="动物医院许可证办理流程 动物医院许可证办理流程图">动物医院许可证办理流程 动物医院许可证办理流程图</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-section end -->
+                <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="inner-box clearfix">
+                        <div class="copyright pull-left">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                <a href="/">VPN For iPhone 订阅链接节点官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="fa fa-arrow-up"></span>
+        </button>
+        <!-- jequery plugins -->
+        <script src="/assets/website/js/frontend/freestashnode/jquery.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/popper.min.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/owl.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/wow.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/validation.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/jquery.fancybox.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/appear.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/scrollbar.js"></script>
+        <!-- main-js -->
+        <script src="/assets/website/js/frontend/freestashnode/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body><!-- End of .page_wrapper -->
+
+</html>
