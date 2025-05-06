@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnforiphone.github.io/news/article-110741.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>JVM系列：jinfo命令详解</title>
+        <meta name="description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。 目录  			    2019独角兽" />
+        <link rel="icon" href="/assets/website/img/freestashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN For iPhone 订阅链接节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnforiphone.github.io/news/article-110741.htm" />
+    <meta property="og:site_name" content="VPN For iPhone 订阅链接节点官网" />
+    <meta property="og:title" content="JVM系列：jinfo命令详解" />
+    <meta property="og:image" content="https://vpnforiphone.github.io/uploads/20240919/39f7b9bd651bbe87101e9500aaef91c1.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:29:33" />
+    <meta property="og:updated_time" content="2025-05-03T10:29:33" />
+        <meta property="og:description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。 目录  			    2019独角兽" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JVM系列：jinfo命令详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link href="/assets/website/css/freestashnode/font-awesome-all.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/flaticon.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/owl.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/bootstrap.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/animate.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/color.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/style.css" rel="stylesheet">
+    <link href="/assets/website/css/freestashnode/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5BJ013Z2RV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5BJ013Z2RV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+<!-- page wrapper -->
+
+<body data-page="detail">
+    <div class="boxed_wrapper">
+                <!-- preloader -->
+        <div class="preloader"></div>
+        <!-- preloader -->
+        <!-- main header -->
+        <header class="main-header style-one">
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="/">
+                                                        <span>VPN For iPhone</span>
+                                                        </a>
+                        </figure>
+                    </div>
+                    <div class="menu-area">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="/">
+                                <span>VPN For iPhone</span>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="menu-area">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <nav class="menu-box">
+                <div class="menu-outer">
+                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+        <!-- Page Title -->
+        <section class="page-title centred" style="background-image: url(/assets/website/img/freestashnode/background/page-title.jpg);">
+            <div class="auto-container">
+                <div class="content-box">
+                    <div class="title">
+                        <h1>JVM系列：jinfo命令详解</h1>
+                    </div>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End Page Title -->
+        <!-- about-section -->
+        <section class="about-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。</li> </ul><span class="log-zd"><span class="log-close"><i class="be be-cross"></i><strong>目录</strong></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div class="content" id="articleContent"> <div class="ad-wrap"> <p>2019独角兽企业重金招聘Python工程师标准&gt;&gt;&gt;  <img decoding="async" src="http://img.555519.xyz/uploads/20230223/2451e355adb13959213834c5a628f71a.jpg" alt="JVM系列：jinfo命令详解"></p> </p></div> <p> <span id="OSC_h4_1"></span> </p> <span class="directory"></span><h4 id="title-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。</h4> <p> <span id="OSC_h3_2"></span> </p> <h3><strong>一.查看JVM参数</strong></h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag &lt;name&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;示例：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# jinfo -flag MaxMetaspaceSize 11180</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:MaxMetaspaceSize=536870912</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示 MaxMetaspaceSize的大小为512M</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果没有配置，就会显示一个超大的数字：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:MaxMetaspaceSize=18446744073709547520</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# jinfo -flag ThreadStackSize 8752</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:ThreadStackSize=256</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示Xss(线程堆栈大小)为256K</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果没有配置，显示数量为0：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:ThreadStackSize=0</p> <p>&nbsp;</p> <p> <span id="OSC_h3_3"></span> </p> <h3><strong>二.调整JVM参数</strong></h3> <p><strong>(1)布尔类型的JVM参数</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag [+|-]&lt;name&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;生效或者失效指定名字的参数</p> <p><strong>(2)数字/字符串类型的JVM参数</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag &lt;name&gt;=&lt;value&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;使用给定的值，设置参数的值</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现，</p> <pre><code class="language-java">Exception in thread "main" java.io.IOException: Command failed in target VM         at sun.tools.attach.WindowsVirtualMachine.execute(WindowsVirtualMachine.java:112)         at sun.tools.attach.HotSpotVirtualMachine.executeCommand(HotSpotVirtualMachine.java:217)         at sun.tools.attach.HotSpotVirtualMachine.setFlag(HotSpotVirtualMachine.java:190)         at sun.tools.jinfo.JInfo.flag(JInfo.java:123)         at sun.tools.jinfo.JInfo.main(JInfo.java:76)</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;则表示，对这个flag参数不支持。</p> <p>&nbsp;</p> <p> <span id="OSC_h3_4"></span> </p> <h3><strong>三.查看支持动态修改的JVM参数</strong></h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;官方文档中这样描述：标记为manageable的参数通过JConsole或者通过HotSpotDiagnosticMXBean这个类的接口查看。</p> <p><strong>(1)通过JConsole查看标记为manageable的Flags</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Linux下：java -XX:+PrintFlagsInitial | grep manageable</p> <p><img fetchpriority="high" decoding="async" alt="" height="300" src="http://img.555519.xyz/uploads/20230223/7edc6d1a99d9554a51bf53ac4a7ad243.jpg"></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Windows下：java -XX:+PrintFlagsInitial | findstr manageable</p> <p><img decoding="async" alt="" height="250" src="http://img.555519.xyz/uploads/20230223/805d5696e563cd665257699d8a0271ef.jpg"></p> <p>&nbsp;</p> <p><strong>(2)通过HotSpotDiagnosticMXBean</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Java官方的API文档中，接口HotSpotDiagnosticMXBean有一个getDiagnosticOptions()的方法，返回所有可动态修改的JVM参数。通过接口HotSpotDiagnosticMXBean的实现类 - HotSpotDiagnostic来调用这个方法。</p> <p><img decoding="async" alt="" height="200" src="http://img.555519.xyz/uploads/20230223/b7ff6a5c11f710aaa62723c2c2402ac2.jpg"></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;使用Java代码调用查看：</p> <pre><code class="language-java">HotSpotDiagnostic mxBean = new HotSpotDiagnostic(); List&lt;VMOption&gt; diagnosticVMOptions = mxBean.getDiagnosticOptions(); System.out.println("Writeable VM option: "); for (VMOption vmOption:diagnosticVMOptions){      System.out.println("  "+vmOption.getName() + " = " + vmOption.getValue()); }</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;运行结果：</p> <pre><code class="language-java">Writeable VM option:    HeapDumpBeforeFullGC = false   HeapDumpAfterFullGC = false   HeapDumpOnOutOfMemoryError = false   HeapDumpPath =    CMSAbortablePrecleanWaitMillis = 100   CMSWaitDuration = 2000   CMSTriggerInterval = -1   PrintGC = false   PrintGCDetails = false   PrintGCDateStamps = false   PrintGCTimeStamps = false   PrintGCID = false   PrintClassHistogramBeforeFullGC = false   PrintClassHistogramAfterFullGC = false   PrintClassHistogram = false   MinHeapFreeRatio = 0   MaxHeapFreeRatio = 100   PrintConcurrentLocks = false   UnlockCommercialFeatures = false</code></pre> <p>&nbsp;</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;参考资料：简书-阿飞Javaer jinfo命令详解</p> <div class="ad-wrap"> <div id="blog-title-ad">    <ins class="adsbygoogle"></ins>   </div> </p></div> </div> <p>转载于:https://my.oschina.net/javamaster/blog/1833908</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109864.htm">猫粮厂家拿货（猫粮工厂拿货）</a></p>
+                                        <p>下一个：<a href="/news/article-110742.htm">成都托运宠物到哈尔滨（宠物托运 成都）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-103966.htm" title="宠物鲜粮市场分析论文（宠物鲜粮市场分析论文题目）">宠物鲜粮市场分析论文（宠物鲜粮市场分析论文题目）</a></li>
+                        <li class="py-2"><a href="/news/article-98688.htm" title="厦门宠物收容中心地址 厦门宠物收容中心地址在哪里">厦门宠物收容中心地址 厦门宠物收容中心地址在哪里</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-clash-v2ray-ss-ssr.htm" title="VPN For iPhone | 4月24日22.1M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点链接地址">VPN For iPhone | 4月24日22.1M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-high-speed-nodes.htm" title="VPN For iPhone | 4月7日20.1M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点链接地址">VPN For iPhone | 4月7日20.1M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share-links.htm" title="VPN For iPhone | 4月3日21.3M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点链接地址">VPN For iPhone | 4月3日21.3M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-96553.htm" title="mysql数据库中将查询出来的数据批量更新到另外一张表里面">mysql数据库中将查询出来的数据批量更新到另外一张表里面</a></li>
+                        <li class="py-2"><a href="/news/article-111570.htm" title="动物疫苗现状调查 动物疫苗现状调查报告">动物疫苗现状调查 动物疫苗现状调查报告</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-subscribe-node.htm" title="VPN For iPhone | 4月26日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址">VPN For iPhone | 4月26日21.6M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-95814.htm" title="小型宠物粮加工厂需要什么手续呢多少钱一个（宠物粮食加工厂）">小型宠物粮加工厂需要什么手续呢多少钱一个（宠物粮食加工厂）</a></li>
+                        <li class="py-2"><a href="/news/article-92785.htm" title="被猫抓了一下出了点血可以不***吗（被猫抓了一下出了点血可以不***吗多少钱）">被猫抓了一下出了点血可以不***吗（被猫抓了一下出了点血可以不***吗多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">88</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-section end -->
+                <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="inner-box clearfix">
+                        <div class="copyright pull-left">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                <a href="/">VPN For iPhone 订阅链接节点官网</a> 版权所有 Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="fa fa-arrow-up"></span>
+        </button>
+        <!-- jequery plugins -->
+        <script src="/assets/website/js/frontend/freestashnode/jquery.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/popper.min.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/bootstrap.min.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/owl.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/wow.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/validation.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/jquery.fancybox.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/appear.js"></script>
+        <script src="/assets/website/js/frontend/freestashnode/scrollbar.js"></script>
+        <!-- main-js -->
+        <script src="/assets/website/js/frontend/freestashnode/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body><!-- End of .page_wrapper -->
+
+</html>
