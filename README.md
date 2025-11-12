@@ -1,4 +1,4 @@
-# VPN For iPhone | 11月6日22M/S|免费VPN/V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点免费节点链接地址  更新时间 2025-11-06 08:20:53
+# VPN For iPhone | 11月12日19.5M/S|免费VPN/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点免费节点链接地址  更新时间 2025-11-12 09:12:42
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://vpnforiphone.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/11/0-20251106.yaml
-- https://vpnforiphone.github.io/uploads/2025/11/1-20251106.yaml
-- https://vpnforiphone.github.io/uploads/2025/11/2-20251106.yaml
-- https://vpnforiphone.github.io/uploads/2025/11/3-20251106.yaml
-- https://vpnforiphone.github.io/uploads/2025/11/4-20251106.yaml
+- https://vpnforiphone.github.io/uploads/2025/11/0-20251112.yaml
+- https://vpnforiphone.github.io/uploads/2025/11/1-20251112.yaml
+- https://vpnforiphone.github.io/uploads/2025/11/2-20251112.yaml
+- https://vpnforiphone.github.io/uploads/2025/11/3-20251112.yaml
+- https://vpnforiphone.github.io/uploads/2025/11/4-20251112.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/11/0-20251106.txt
-- https://vpnforiphone.github.io/uploads/2025/11/1-20251106.txt
-- https://vpnforiphone.github.io/uploads/2025/11/2-20251106.txt
-- https://vpnforiphone.github.io/uploads/2025/11/3-20251106.txt
-- https://vpnforiphone.github.io/uploads/2025/11/4-20251106.txt
+- https://vpnforiphone.github.io/uploads/2025/11/0-20251112.txt
+- https://vpnforiphone.github.io/uploads/2025/11/1-20251112.txt
+- https://vpnforiphone.github.io/uploads/2025/11/2-20251112.txt
+- https://vpnforiphone.github.io/uploads/2025/11/3-20251112.txt
+- https://vpnforiphone.github.io/uploads/2025/11/4-20251112.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://vpnforiphone.github.io/uploads/2025/11/20251106.json
+- https://vpnforiphone.github.io/uploads/2025/11/20251112.json
 
 ## 更多Clash节点订阅 ：
 
