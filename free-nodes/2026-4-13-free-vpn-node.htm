@@ -309,29 +309,9 @@ Clash啊支持Windows、macOS、Linux，甚至移动端Android和iOS平台。</p
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS Reality 模式与 XTLS 模式有何不同？</h5></div>
-    <div class="panel-body">
-        VLESS Reality 通过伪造握手和真实网站的 TLS 指纹实现高仿真加密，而 XTLS 强调高性能传输。Reality 更注重隐蔽性，适合高安全需求环境；XTLS 则偏重传输效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 的节点订阅更新是否可定时执行？</h5></div>
     <div class="panel-body">
         是的。Nekoray 可以设置订阅更新频率，如每天或每小时。程序会自动下载更新节点并替换旧节点，保证用户始终使用最新线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
-    <div class="panel-body">
-        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
-    <div class="panel-body">
-        PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 可以管理多少个节点？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 可以管理数十个节点，适合轻量用户使用。虽然不支持批量自动更新，但可以手动添加和删除节点，结合策略组实现基本分流和管理功能。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的分流规则支持哪些条件？</h5></div>
@@ -339,9 +319,19 @@ Clash啊支持Windows、macOS、Linux，甚至移动端Android和iOS平台。</p
         支持按域名、IP 地址、端口、请求路径、协议类型或关键词进行分流。结合策略组，可实现广告屏蔽、视频加速、游戏优化等多种自定义网络策略。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何保证数据安全？</h5></div>
+    <div class="panel-heading"><h5>如何优化 Clash 的 DNS 设置？</h5></div>
     <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，可保证节点长期可用，提升数据安全和连接稳定性，同时降低被检测风险。<hr />    </div>
+        在 Clash 中使用自定义 DNS 可以加快域名解析速度。建议使用 doh（DNS over HTTPS）或 dot（DNS over TLS）配置方式，既能提升速度，也能保护隐私防止 DNS 泄露。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 可以管理多少个节点？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 可以管理数十个节点，适合轻量用户使用。虽然不支持批量自动更新，但可以手动添加和删除节点，结合策略组实现基本分流和管理功能。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-body">
+        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的配置文件与 Clash 有何区别？</h5></div>
@@ -349,14 +339,24 @@ Clash啊支持Windows、macOS、Linux，甚至移动端Android和iOS平台。</p
         Sing-box 的配置使用 JSON 格式，而 Clash 采用 YAML 格式。前者更适合程序自动解析，后者更便于人工编辑。Sing-box 在性能和扩展性上有明显优势，支持更细粒度的流量控制。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何优化 Clash 的 DNS 设置？</h5></div>
+    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
     <div class="panel-body">
-        在 Clash 中使用自定义 DNS 可以加快域名解析速度。建议使用 doh（DNS over HTTPS）或 dot（DNS over TLS）配置方式，既能提升速度，也能保护隐私防止 DNS 泄露。<hr />    </div>
+        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密如何保证数据安全？</h5></div>
     <div class="panel-body">
-        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。    </div>
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，可保证节点长期可用，提升数据安全和连接稳定性，同时降低被检测风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS Reality 模式与 XTLS 模式有何不同？</h5></div>
+    <div class="panel-body">
+        VLESS Reality 通过伪造握手和真实网站的 TLS 指纹实现高仿真加密，而 XTLS 强调高性能传输。Reality 更注重隐蔽性，适合高安全需求环境；XTLS 则偏重传输效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
+    <div class="panel-body">
+        PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -385,16 +385,16 @@ Clash啊支持Windows、macOS、Linux，甚至移动端Android和iOS平台。</p
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-28-share-vpn.htm" title="VPN For iPhone | 3月28日18.5M/S|免费VPN/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点链接地址">VPN For iPhone | 3月28日18.5M/S|免费VPN/Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-vpn-proxy.htm" title="VPN For iPhone | 3月16日18.2M/S|免费VPN/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点链接地址">VPN For iPhone | 3月16日18.2M/S|免费VPN/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-25-node-share-links.htm" title="VPN For iPhone | 3月25日20.3M/S|免费VPN/SSR节点/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点链接地址">VPN For iPhone | 3月25日20.3M/S|免费VPN/SSR节点/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-11-share-vpn.htm" title="VPN For iPhone | 3月11日19.3M/S|免费VPN/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点链接地址">VPN For iPhone | 3月11日19.3M/S|免费VPN/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-23-node-share-links.htm" title="VPN For iPhone | 3月23日19.8M/S|免费VPN/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点链接地址">VPN For iPhone | 3月23日19.8M/S|免费VPN/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-26-top-vpn-node.htm" title="VPN For iPhone | 3月26日21M/S|免费VPN/Trojan节点/Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 3月26日21M/S|免费VPN/Trojan节点/Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-19-share-vpn.htm" title="VPN For iPhone | 3月19日19M/S|免费VPN/Singbox节点/Trojan节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 3月19日19M/S|免费VPN/Singbox节点/Trojan节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-vpn-proxy.htm" title="VPN For iPhone | 3月22日18.2M/S|免费VPN/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点免费节点链接地址">VPN For iPhone | 3月22日18.2M/S|免费VPN/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-21-share-vpn.htm" title="VPN For iPhone | 3月21日21.9M/S|免费VPN/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点链接地址">VPN For iPhone | 3月21日21.9M/S|免费VPN/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-13-vpn-node.htm" title="VPN For iPhone | 3月13日23M/S|免费VPN/V2ray节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址">VPN For iPhone | 3月13日23M/S|免费VPN/V2ray节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-4-share-vpn.htm" title="VPN For iPhone | 5月4日21M/S|免费VPN/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点链接地址">VPN For iPhone | 5月4日21M/S|免费VPN/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-3-vpn-proxy.htm" title="VPN For iPhone | 5月3日19.4M/S|免费VPN/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点免费节点链接地址">VPN For iPhone | 5月3日19.4M/S|免费VPN/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-13-free-vpn-node.htm" title="VPN For iPhone | 4月13日21.4M/S|免费VPN/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点免费节点链接地址">VPN For iPhone | 4月13日21.4M/S|免费VPN/Clash节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-2-free-node-subscribe-links.htm" title="VPN For iPhone | 5月2日20.6M/S|免费VPN/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 5月2日20.6M/S|免费VPN/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-free-node-subscribe-links.htm" title="VPN For iPhone | 4月30日19.8M/S|免费VPN/Trojan节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点链接地址">VPN For iPhone | 4月30日19.8M/S|免费VPN/Trojan节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-9-free-node-subscribe-links.htm" title="VPN For iPhone | 5月9日18.2M/S|免费VPN/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点免费节点链接地址">VPN For iPhone | 5月9日18.2M/S|免费VPN/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-18-free-node-subscribe-links.htm" title="VPN For iPhone | 4月18日21M/S|免费VPN/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址">VPN For iPhone | 4月18日21M/S|免费VPN/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-6-vpn-proxy.htm" title="VPN For iPhone | 5月6日19.5M/S|免费VPN/Singbox节点/SSR节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 5月6日19.5M/S|免费VPN/Singbox节点/SSR节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-vpn-proxy.htm" title="VPN For iPhone | 4月29日20.4M/S|免费VPN/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点免费节点链接地址">VPN For iPhone | 4月29日20.4M/S|免费VPN/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点免费节点链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-vpn-proxy.htm" title="VPN For iPhone | 4月20日20.8M/S|免费VPN/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点免费节点链接地址">VPN For iPhone | 4月20日20.8M/S|免费VPN/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点免费节点链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -406,10 +406,10 @@ Clash啊支持Windows、macOS、Linux，甚至移动端Android和iOS平台。</p
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
