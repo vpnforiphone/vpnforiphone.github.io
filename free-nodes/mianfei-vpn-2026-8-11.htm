@@ -346,14 +346,19 @@ A4：核对账号信息，尝试切换网络环境，检查应用权限，或者
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 是否支持自动测速节点？</h5></div>
-    <div class="panel-body">
-        支持。Matsuri 可以自动对订阅中的节点进行延迟和速度测试，并按测试结果排序，用户可快速选择最佳节点，提升整体网络使用体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
     <div class="panel-body">
         Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何检查 Clash 连接失败的日志以定位问题？</h5></div>
+    <div class="panel-body">
+        打开 Clash 的日志面板或查看配置目录下的 log 文件，观察报错信息如 DNS 解析失败、节点拒绝连接或 TLS 握手错误。根据关键字（例如 timeout、refused、certificate）逐项排查并比对服务器配置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式能全局代理吗？</h5></div>
+    <div class="panel-body">
+        TUN 模式拦截系统 IP 层流量，可实现全局代理，无需手动设置浏览器或应用代理。适合需要全局科学上网或游戏加速的场景，保证所有流量均走代理节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 在新版 iOS 上无法连接怎么办？</h5></div>
@@ -366,14 +371,14 @@ A4：核对账号信息，尝试切换网络环境，检查应用权限，或者
         通过配置域名列表或 IP 段，将国内流量指向直连出口，而国外流量走代理节点。结合策略组和定期更新规则，可保持国内访问速度，同时优化海外访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何检查 Clash 连接失败的日志以定位问题？</h5></div>
+    <div class="panel-heading"><h5>Trojan 的伪装域名配置需要注意什么？</h5></div>
     <div class="panel-body">
-        打开 Clash 的日志面板或查看配置目录下的 log 文件，观察报错信息如 DNS 解析失败、节点拒绝连接或 TLS 握手错误。根据关键字（例如 timeout、refused、certificate）逐项排查并比对服务器配置。<hr />    </div>
+        伪装域名必须真实可访问并有有效证书，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁风险，保证节点长期稳定可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的策略组可设置延迟阈值吗？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 是否支持自动测速节点？</h5></div>
     <div class="panel-body">
-        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。<hr />    </div>
+        支持。Matsuri 可以自动对订阅中的节点进行延迟和速度测试，并按测试结果排序，用户可快速选择最佳节点，提升整体网络使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
@@ -381,19 +386,14 @@ A4：核对账号信息，尝试切换网络环境，检查应用权限，或者
         支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名配置需要注意什么？</h5></div>
+    <div class="panel-heading"><h5>Clash 的策略组可设置延迟阈值吗？</h5></div>
     <div class="panel-body">
-        伪装域名必须真实可访问并有有效证书，否则客户端无法建立连接。正确配置可隐藏真实流量特征，降低被封锁风险，保证节点长期稳定可用。<hr />    </div>
+        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 节点订阅更新不成功怎么办？</h5></div>
     <div class="panel-body">
-        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式能全局代理吗？</h5></div>
-    <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，可实现全局代理，无需手动设置浏览器或应用代理。适合需要全局科学上网或游戏加速的场景，保证所有流量均走代理节点。    </div>
+        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -441,16 +441,16 @@ A4：核对账号信息，尝试切换网络环境，检查应用权限，或者
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-top-vpn.htm" title="VPN For iPhone | 7月27日21.7M/S|免费VPN/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点免费节点链接地址">VPN For iPhone | 7月27日21.7M/S|免费VPN/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-free-vpn-node.htm" title="VPN For iPhone | 7月28日19.1M/S|免费VPN/SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点链接地址">VPN For iPhone | 7月28日19.1M/S|免费VPN/SSR节点/Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-vpn-free.htm" title="VPN For iPhone | 7月24日18M/S|免费VPN/Singbox节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址">VPN For iPhone | 7月24日18M/S|免费VPN/Singbox节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-8-29.htm" title="VPN For iPhone | 8月29日18.1M/S|免费VPN/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 8月29日18.1M/S|免费VPN/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-vpn-node.htm" title="VPN For iPhone | 8月26日21.2M/S|免费VPN/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点免费节点链接地址">VPN For iPhone | 8月26日21.2M/S|免费VPN/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-node-share.htm" title="VPN For iPhone | 8月6日20.8M/S|免费VPN/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点免费节点链接地址">VPN For iPhone | 8月6日20.8M/S|免费VPN/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-node-share.htm" title="VPN For iPhone | 8月24日21.1M/S|免费VPN/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点链接地址">VPN For iPhone | 8月24日21.1M/S|免费VPN/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点免费节点链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-15.htm" title="VPN For iPhone | 8月15日18.6M/S|免费VPN/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点免费节点链接地址">VPN For iPhone | 8月15日18.6M/S|免费VPN/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-node-subscribe.htm" title="VPN For iPhone | 8月14日20M/S|免费VPN/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点免费节点链接地址">VPN For iPhone | 8月14日20M/S|免费VPN/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-7-31.htm" title="VPN For iPhone | 7月31日20.5M/S|免费VPN/Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 7月31日20.5M/S|免费VPN/Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/mianfei-vpn-2026-8-3.htm" title="VPN For iPhone | 8月3日20.7M/S|免费VPN/Clash节点/Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点链接地址">VPN For iPhone | 8月3日20.7M/S|免费VPN/Clash节点/Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-28-vpn-free.htm" title="VPN For iPhone | 8月28日19.2M/S|免费VPN/Clash节点/Singbox节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址">VPN For iPhone | 8月28日19.2M/S|免费VPN/Clash节点/Singbox节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点免费节点链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-7.htm" title="VPN For iPhone | 8月7日21.1M/S|免费VPN/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点免费节点链接地址">VPN For iPhone | 8月7日21.1M/S|免费VPN/Clash节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/top-vpn-2026-7-29.htm" title="VPN For iPhone | 7月29日20.9M/S|免费VPN/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点免费节点链接地址">VPN For iPhone | 7月29日20.9M/S|免费VPN/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点免费节点链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-node-subscribe.htm" title="VPN For iPhone | 7月20日22M/S|免费VPN/Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点免费节点链接地址">VPN For iPhone | 7月20日22M/S|免费VPN/Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-node-subscribe.htm" title="VPN For iPhone | 8月8日19.2M/S|免费VPN/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点免费节点链接地址">VPN For iPhone | 8月8日19.2M/S|免费VPN/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-vpn-node.htm" title="VPN For iPhone | 9月2日19.2M/S|免费VPN/V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址">VPN For iPhone | 9月2日19.2M/S|免费VPN/V2ray节点/SSR节点/Trojan节点/Clash节点/Shadowrocket节点/Singbox节点免费节点链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-vpn-node.htm" title="VPN For iPhone | 8月22日19.5M/S|免费VPN/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址">VPN For iPhone | 8月22日19.5M/S|免费VPN/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -462,10 +462,10 @@ A4：核对账号信息，尝试切换网络环境，检查应用权限，或者
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
